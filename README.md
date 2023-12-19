@@ -1,6 +1,7 @@
 1. yolov5: yolo를 이용해 골목을 지나가지 않고 멈춰있는 사람 객체를 탐지하고, http://zandhi98.pythonanywhere.com/ 로 사진을 전송
+   python detect.py --source 0 --weights yolov5n.pt --conf 0.25 --hide-labels --line-thickness 1 --vid-stride 4
 
-2. djangogitls: 수상한 행동을 한 사람 객체으 사진을 저장, 관리하는 장고 서버
+2. djangogirls: 수상한 행동을 한 사람 객체으 사진을 저장, 관리하는 장고 서버
    
 3. UrnationDetector: 서버에서 미분류 데이터를 불러와서 라벨링 하는 앱, 안드로이드 스튜디오 프로젝트 파일
    
