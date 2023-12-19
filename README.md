@@ -1,4 +1,4 @@
-1. yolov5: yolo를 이용해 골목을 지나가지 않고 멈춰있는 사람 객체를 탐지하고, http://zandhi98.pythonanywhere.com/로 사진을 전송
+1. yolov5: yolo를 이용해 골목을 지나가지 않고 멈춰있는 사람 객체를 탐지하고, http://zandhi98.pythonanywhere.com/ 로 사진을 전송
 
 2. djangogitls: 수상한 행동을 한 사람 객체으 사진을 저장, 관리하는 장고 서버
    
