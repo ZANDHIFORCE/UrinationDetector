@@ -1,6 +1,6 @@
 1. yolov5: yolo를 이용해 골목을 지나가지 않고 멈춰있는 사람 객체를 탐지하고, http://zandhi98.pythonanywhere.com/ 로 사진을 전송
 
-    1-1 아래명령어를 사용했음:
+    1-1 라즈베리파이v4 환경에서 아래명령어를 사용했음:
     python detect.py --source 0 --weights yolov5n.pt --conf 0.25 --hide-labels --line-thickness 1 --vid-stride 4
 
 2. djangogirls: 수상한 행동을 한 사람 객체으 사진을 저장, 관리하는 장고 서버
