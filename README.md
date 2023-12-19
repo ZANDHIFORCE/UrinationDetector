@@ -7,9 +7,9 @@
    
 3. UrnationDetector(라벨링 모듈): 라벨링 되어있지 않은 게시물 불러와 라벨링을 하는 어플 // 안드로이드 스튜디오 프로젝트 파일
    
-5. LoadImage: 라벨링된 사진들을 서버에서 로컬파일로 불러옴 //모델 학습을 위함
+4. LoadImage: 라벨링된 사진들을 서버에서 로컬파일로 불러옴 //모델 학습을 위함
    
-7. Urination_Detector(카메라 모듈): 불러온 사진으로 학습된 모델을 통해 침입자의 정확한 노상방뇨 탐지 및 경고음성출력
+5. Urination_Detector(카메라 모듈): 불러온 사진으로 학습된 모델을 통해 침입자의 정확한 노상방뇨 탐지 및 경고음성출력
 
 
 ![image](https://github.com/ZANDHIFORCE/UrinationDetector/assets/91401488/c32b9206-5475-4aca-b66f-25d31d315a39)
