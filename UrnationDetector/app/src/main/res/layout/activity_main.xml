@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btn_load"
+        android:text="미분류 데이터 불러오기"
+        android:onClick="onClickForLoad"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btn_save"
+        android:text="이미지 저장하기"
+        android:onClick="onClickForSave"
+        />
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="match_parent"
+        android:layout_height="246dp" />
+
+    <TextView
+        android:id="@+id/myTextView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="미분류 데이터를 불러오세요!"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/btn_URN"
+        android:text="노상방뇨"
+        android:onClick="onClickForLabel"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/btn_SMK"
+        android:text="흡연"
+        android:onClick="onClickForLabel"
+        />
+
+    <Button
+        android:id="@+id/btn_ETC"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:onClick="onClickForLabel"
+        android:text="ETC" />
+
+
+</LinearLayout>

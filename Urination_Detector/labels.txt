@@ -1,0 +1,3 @@
+0 Urination
+1 Smoking
+2 ETC

@@ -1,0 +1,33 @@
+{% load static %}
+<html>
+
+    <head>
+        <title>노상방뇨탐지</title>
+
+        <!-- Bootstrap 설치 -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!-- static css loading -->
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <!-- font loading -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Urination Detector</a></h1>
+        </div>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
