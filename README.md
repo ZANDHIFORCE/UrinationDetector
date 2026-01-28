@@ -1,5 +1,7 @@
 # Urination Detector System (노상방뇨 탐지 시스템)
 
+![Architecture Diagram](https://private-user-images.githubusercontent.com/91401488/291497670-c32b9206-5475-4aca-b66f-25d31d315a39.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njk1OTE1NTIsIm5iZiI6MTc2OTU5MTI1MiwicGF0aCI6Ii85MTQwMTQ4OC8yOTE0OTc2NzAtYzMyYjkyMDYtNTQ3NS00YWNhLWI2NmYtMjVkMzFkMzE1YTM5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAxMjglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMTI4VDA5MDczMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTg5ODU4NDkwMTIzZWU2YWNkMWYwZGQ0MmQxNGUzZWViYzkxOGU3MDgxY2E0Nzg2NTY0YWM5OTFhMTA2NmE0ZDgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ykexSKkXyDcJ2mLGT9lAJo83ccKAhQOBbVJBhWB8IFU)
+
 이 프로젝트는 컴퓨터 비전과 딥러닝을 활용하여 노상방뇨를 실시간으로 탐지하고 경고하는 통합 시스템입니다.  
 시스템은 객체 탐지(YOLOv5), 데이터 서버(Django), 데이터 라벨링(Android App), 그리고 최종 추론 및 경고 모듈(Keras/Raspberry Pi)로 구성되어 있습니다.
 
@@ -73,4 +75,3 @@ D:\Dev\project\UrinationDetector\
 ```
 
 ## 🔗 관련 링크
-![image](https://github.com/ZANDHIFORCE/UrinationDetector/assets/91401488/c32b9206-5475-4aca-b66f-25d31d315a39)
