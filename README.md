@@ -29,13 +29,13 @@
 ### 1. 머신러닝 학습 과정 (Data & Training)
 | 데이터셋 구축 및 학습 |
 | :---: |
-| <img src="여기에_ml_process.png_링크넣기" width="600"> |
+| <img src="https://github.com/user-attachments/assets/fd4ea33f-7ae1-419e-bc28-411403fc1b6c" width="600"> |
 | *수집된 데이터를 활용해 노상방뇨 vs 일반 보행자를 분류하는 모델 학습* |
 
 ### 2. 하드웨어 설치 및 현장 테스트 (Real-world Deployment)
 | 옥상 감시 시스템 구축 |
 | :---: |
-| <img src="여기에_hardware_setup.png_링크넣기" width="600"> |
+| <img src="https://github.com/user-attachments/assets/9fd76e47-f3b8-4213-afd9-197a731f7b4c" width="600"> |
 | *라즈베리파이 4와 웹캠을 활용하여 실제 건물 옥상에서 2주간 필드 테스트 수행* |
 
 ---
@@ -58,7 +58,7 @@
 - **특징:** 서버와 연동하여 실시간 이미지 로드 및 라벨 업데이트
 
 ### 🔊 4. Urination_Detector (Inference Module)
-<img src="여기에_demo_result.png_링크넣기" width="500">
+<img src="[여기에_demo_result.png_링크넣기](https://github.com/user-attachments/assets/dc4d954a-a803-4d93-85a7-a41775ec72fa)" width="500">
 
 - **역할:** 학습된 Keras 모델(`.h5`)을 로드하여 실시간 판독 및 경고 방송 송출
 - **Logic:**
