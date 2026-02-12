@@ -58,7 +58,7 @@
 - **특징:** 서버와 연동하여 실시간 이미지 로드 및 라벨 업데이트
 
 ### 🔊 4. Urination_Detector (Inference Module)
-<img src="[여기에_demo_result.png_링크넣기](https://github.com/user-attachments/assets/dc4d954a-a803-4d93-85a7-a41775ec72fa)" width="500">
+<img src="https://github.com/user-attachments/assets/dc4d954a-a803-4d93-85a7-a41775ec72fa" width="500">
 
 - **역할:** 학습된 Keras 모델(`.h5`)을 로드하여 실시간 판독 및 경고 방송 송출
 - **Logic:**
