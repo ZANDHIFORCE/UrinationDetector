@@ -86,14 +86,17 @@ D:\Dev\project\UrinationDetector\
     ├── keras_Model.h5   # 학습된 모델
     └── run.py           # 메인 실행 파일
 
+```
+
 ---
 
 ## 🔗 관련 링크 (Related Links)
 
 | 구분 | 콘텐츠 링크 | 비고 |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | **Document** | [📄 노상방뇨 탐지기 논문 (Thesis)](https://drive.google.com/file/d/1f6kGLwl4XqyBqUO4NgoJRzLFDGW4-bWS/view?usp=drive_link) | 프로젝트 상세 설계 및 이론 |
 | **Demo #1** | [🎬 프로토타입 기능 테스트 영상](https://drive.google.com/file/d/1I0cp2PDVmjkZuUJ_DR5EsddChgGyegyf/view?usp=sharing) | 노상방뇨 및 흡연 감지 테스트 |
 | **Demo #2** | [🏢 옥상 설치 실전 테스트 영상](https://drive.google.com/file/d/1RpNKm9yhZ8sdQCA66H22pW5s6PCMZ65D/view?usp=sharing) | 라즈베리파이 야외 실제 운용 |
 | **Archive** | [📊 프로젝트 발표 자료 (PPT)](https://docs.google.com/presentation/d/1J1sP0SbMh7VCPl-DiFDkMHlJIGEdiAfq/edit?usp=sharing) | 전체 시스템 요약 및 성과 |
 
+```
