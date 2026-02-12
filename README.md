@@ -46,7 +46,7 @@
 
 | **Step 1. 객체 감지 (YOLOv5)** | **Step 2. 서버 자동 전송 (Django)** | **Step 3. 데이터 라벨링 (App)** |
 | :---: | :---: | :---: |
-| <img src="여기에_YOLO_감지_사진_링크" width="250"> | <img src="여기에_서버_ETC_목록_사진_링크" width="250"> | <img src="여기에_앱_라벨링_사진_링크" width="250"> |
+| <img src="https://github.com/user-attachments/assets/addfb444-fc8a-4479-be38-3906ed1620db" width="250"> | <img src="https://github.com/user-attachments/assets/bb3c484f-0136-48f1-9bb1-e5c9fc01aac7" width="250"> | <img src="https://github.com/user-attachments/assets/a1f81eb6-2a83-42c3-be5b-f73dc7a0062f" width="250"> |
 | **Motion Detection**<br>사람 객체가 감지되면<br>이미지를 자동 캡처합니다. | **Auto-Upload**<br>캡처된 이미지는 서버에<br>`ETC`(미분류)로 저장됩니다. | **Data Labeling**<br>앱에서 해당 이미지를<br>`Urination`(노상방뇨)으로 라벨링합니다. |
 
 <br>
