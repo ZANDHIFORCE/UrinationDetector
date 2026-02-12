@@ -38,6 +38,28 @@
 | <img src="https://github.com/user-attachments/assets/9fd76e47-f3b8-4213-afd9-197a731f7b4c" width="600"> |
 | *라즈베리파이 4와 웹캠을 활용하여 실제 건물 옥상에서 2주간 필드 테스트 수행* |
 
+## 📸 주요 기능 및 시연 (Features & Demo)
+
+데이터 수집부터 실제 경고 송출까지의 **End-to-End 프로세스**입니다.
+
+### 🔄 Phase 1: 데이터 수집 및 가공 (Data Pipeline)
+
+| **Step 1. 객체 감지 (YOLOv5)** | **Step 2. 서버 자동 전송 (Django)** | **Step 3. 데이터 라벨링 (App)** |
+| :---: | :---: | :---: |
+| <img src="여기에_YOLO_감지_사진_링크" width="250"> | <img src="여기에_서버_ETC_목록_사진_링크" width="250"> | <img src="여기에_앱_라벨링_사진_링크" width="250"> |
+| **Motion Detection**<br>사람 객체가 감지되면<br>이미지를 자동 캡처합니다. | **Auto-Upload**<br>캡처된 이미지는 서버에<br>`ETC`(미분류)로 저장됩니다. | **Data Labeling**<br>앱에서 해당 이미지를<br>`Urination`(노상방뇨)으로 라벨링합니다. |
+
+<br>
+
+### ⚡ Phase 2: 모델 학습 및 현장 배포 (Training & Inference)
+
+| **Step 4. 머신러닝 모델 학습 (Teachable Machine)** | **Step 5. 실시간 추론 및 경고 (Raspberry Pi)** |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/fd4ea33f-7ae1-419e-bc28-411403fc1b6c" width="400"> | <img src="https://github.com/user-attachments/assets/9fd76e47-f3b8-4213-afd9-197a731f7b4c" width="400"> |
+| **Training**<br>라벨링된 데이터를 로드하여<br>분류 모델을 학습시킵니다. | **Real-time Alert**<br>옥상에 설치된 엣지 디바이스가<br>행위를 감지하고 경고방송을 송출합니다. |
+
+---
+
 ---
 
 ## 📂 모듈별 상세 설명
