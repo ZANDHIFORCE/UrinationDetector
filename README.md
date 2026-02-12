@@ -79,3 +79,14 @@ D:\Dev\project\UrinationDetector\
 └── Urination_Detector/  # 엣지 디바이스 추론 및 경고 모듈
     ├── keras_Model.h5   # 학습된 모델
     └── run.py           # 메인 실행 파일
+
+## 🔗 관련 링크 (Related Links)
+
+
+- [📄 노상방뇨 탐지기 논문 (Thesis)](https://drive.google.com/file/d/1f6kGLwl4XqyBqUO4NgoJRzLFDGW4-bWS/view?usp=drive_link)
+
+- [🎬 프로토타입 시연 및 기능 테스트 영상](https://drive.google.com/file/d/1I0cp2PDVmjkZuUJ_DR5EsddChgGyegyf/view?usp=sharing) - 노상방뇨, 흡연 등 기능 동작 테스트
+
+- [🏢 옥상 설치 및 2주간 실전 테스트 영상](https://drive.google.com/file/d/1RpNKm9yhZ8sdQCA66H22pW5s6PCMZ65D/view?usp=sharing) - 라즈베리파이 및 카메라 실제 운용 (옥상 설치)
+
+- [📊 프로젝트 발표 자료 (PPT)](https://docs.google.com/presentation/d/1J1sP0SbMh7VCPl-DiFDkMHlJIGEdiAfq/edit?usp=sharing&ouid=105083089802760510558&rtpof=true&sd=true) - 프로토타입 및 실전 영상 포함
