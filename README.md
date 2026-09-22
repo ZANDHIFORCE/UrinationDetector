@@ -39,6 +39,7 @@ flowchart TD
     S --> D[학습 데이터 내려받기]
     D --> T[Teachable Machine 학습]
     T --> M[Keras 모델 파일]
+    classDef default fill:#eff6ff,stroke:#2563eb,color:#172554
 ```
 
 ### 현장 추론 흐름
@@ -50,6 +51,7 @@ flowchart LR
     K --> D{경고 조건 충족?}
     D -->|Yes| E[Espeak 음성 경고]
     D -->|No| N[다음 프레임]
+    classDef default fill:#eff6ff,stroke:#2563eb,color:#172554
 ```
 
 데이터 준비와 현장 추론은 별도 단계입니다. 수집부터 모델 재학습까지 자동으로 수행하는 실시간 파이프라인은 아닙니다.
