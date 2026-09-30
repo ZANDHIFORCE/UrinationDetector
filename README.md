@@ -2,7 +2,7 @@
 
 **카메라 이미지 수집, Django API, Android 라벨링 앱, Raspberry Pi 추론을 연결한 IoT 프로젝트**
 
-## 현장 설치 영상
+## 데모 영상
 
 https://github.com/user-attachments/assets/79a5bd77-b731-4802-b05b-29e4f0ed0a19
 
