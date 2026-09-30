@@ -17,7 +17,7 @@ Raspberry Pi를 설치한 현장 시연입니다. [**원본 영상 보기**](htt
 
 **개인 프로젝트** · 조동휘: 앱·서버·수집 로직·추론 연동
 
-[기능 테스트 영상](https://drive.google.com/file/d/1I0cp2PDVmjkZuUJ_DR5EsddChgGyegyf/view) · [구현 구조](#구현-구조) · [실행 조건](docs/SETUP.md)
+[기능 테스트 영상](https://drive.google.com/file/d/1I0cp2PDVmjkZuUJ_DR5EsddChgGyegyf/view) · [구현 구조](#구현-구조) · [프로젝트 구조](#project-structure) · [실행 조건](docs/SETUP.md)
 
 ## 프로젝트 개요
 
@@ -102,6 +102,27 @@ YOLOv5 결과에서 사람 감지 상태가 이어지는 시간을 확인하고,
 
 [전처리·추론·경고 코드](Urination_Detector/run.py)
 
+<a id="project-structure"></a>
+
+## 📂 프로젝트 구조
+
+주요 코드와 문서만 표시했습니다.
+
+```text
+UrinationDetector/
+├── yolov5/  # 사람 감지·이미지 수집
+│   ├── changeDetection.py  # 수집 조건·이미지 전송
+│   └── detect.py  # 탐지 루프 연동
+├── djangogirls/  # 이미지 저장·조회·라벨 API
+├── UrnationDetector/  # Android 라벨링 앱
+├── LoadImage/  # 학습 데이터 내려받기
+├── Urination_Detector/  # Raspberry Pi 현장 추론
+│   └── run.py  # 분류·음성 경고
+└── docs/  # 실행 조건·API·검증 기록
+```
+
+`UrnationDetector`는 현재 Android 모듈의 실제 폴더 이름입니다.
+
 ## 실행과 검증
 
 서버·Android 앱·카메라·학습 모델·음성 출력 환경이 필요합니다. [모듈별 실행 조건](docs/SETUP.md)과 [검증 기록](docs/VALIDATION.md)에서 현재 재현 가능한 범위를 확인할 수 있습니다.
@@ -122,17 +143,3 @@ YOLOv5 결과에서 사람 감지 상태가 이어지는 시간을 확인하고,
 | [현장 설치 영상](https://drive.google.com/file/d/1RpNKm9yhZ8sdQCA66H22pW5s6PCMZ65D/view) | Raspberry Pi 현장 시연 |
 | [발표 자료](https://docs.google.com/presentation/d/1J1sP0SbMh7VCPl-DiFDkMHlJIGEdiAfq/edit) | 전체 시스템 요약 |
 
-<details>
-<summary>프로젝트 구조</summary>
-
-```text
-yolov5/              사람 감지와 이미지 전송
-djangogirls/         Django 서버와 이미지 API
-UrnationDetector/    Android 라벨링 앱
-LoadImage/           학습 데이터 내려받기
-Urination_Detector/  Keras 추론과 음성 경고
-```
-
-`UrnationDetector`는 현재 Android 모듈의 실제 폴더 이름입니다.
-
-</details>
