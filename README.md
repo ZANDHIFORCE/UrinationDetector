@@ -2,6 +2,12 @@
 
 **카메라 이미지 수집, Django API, Android 라벨링 앱, Raspberry Pi 추론을 연결한 IoT 프로젝트**
 
+## 현장 설치 영상
+
+https://github.com/user-attachments/assets/79a5bd77-b731-4802-b05b-29e4f0ed0a19
+
+Raspberry Pi를 설치한 현장 시연입니다. [**원본 영상 보기**](https://drive.google.com/file/d/1RpNKm9yhZ8sdQCA66H22pW5s6PCMZ65D/view)
+
 ![Python](https://img.shields.io/badge/Language-Python-2563EB?style=flat-square)
 ![Django](https://img.shields.io/badge/Backend-Django-2563EB?style=flat-square)
 ![Android Java](https://img.shields.io/badge/Android-Java-2563EB?style=flat-square)
@@ -9,11 +15,11 @@
 
 **개인 프로젝트** · 조동휘: 앱·서버·수집 로직·추론 연동
 
-[현장 시연](https://drive.google.com/file/d/1RpNKm9yhZ8sdQCA66H22pW5s6PCMZ65D/view) · [기능 테스트 영상](https://drive.google.com/file/d/1I0cp2PDVmjkZuUJ_DR5EsddChgGyegyf/view) · [구현 구조](#구현-구조) · [실행 조건](docs/SETUP.md)
-
-<img src="https://github.com/user-attachments/assets/baf2fd82-4689-41ef-abdc-341c8745b526" width="720" alt="노상방뇨 탐지 프로젝트의 시스템 개요와 현장 구성">
+[기능 테스트 영상](https://drive.google.com/file/d/1I0cp2PDVmjkZuUJ_DR5EsddChgGyegyf/view) · [구현 구조](#구현-구조) · [실행 조건](docs/SETUP.md)
 
 ## 프로젝트 개요
+
+<img src="https://github.com/user-attachments/assets/baf2fd82-4689-41ef-abdc-341c8745b526" width="720" alt="노상방뇨 탐지 프로젝트의 시스템 개요와 현장 구성">
 
 노상방뇨·흡연 행위를 분류하고 음성으로 경고하는 프로토타입입니다. 카메라에서 수집한 이미지를 서버에 저장하고, Android 앱에서 분류한 뒤 모델 학습과 엣지 추론으로 연결했습니다.
 
