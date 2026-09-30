@@ -2,16 +2,18 @@
 
 **카메라 이미지 수집, Django API, Android 라벨링 앱, Raspberry Pi 추론을 연결한 IoT 프로젝트**
 
+![Python](https://img.shields.io/badge/Language-Python-2563EB?style=flat-square)
+![Django](https://img.shields.io/badge/Backend-Django-2563EB?style=flat-square)
+![Android Java](https://img.shields.io/badge/Android-Java-2563EB?style=flat-square)
+![Keras](https://img.shields.io/badge/Inference-Keras-2563EB?style=flat-square)
+
 ## 데모 영상
 
 https://github.com/user-attachments/assets/79a5bd77-b731-4802-b05b-29e4f0ed0a19
 
 Raspberry Pi를 설치한 현장 시연입니다. [**원본 영상 보기**](https://drive.google.com/file/d/1RpNKm9yhZ8sdQCA66H22pW5s6PCMZ65D/view)
 
-![Python](https://img.shields.io/badge/Language-Python-2563EB?style=flat-square)
-![Django](https://img.shields.io/badge/Backend-Django-2563EB?style=flat-square)
-![Android Java](https://img.shields.io/badge/Android-Java-2563EB?style=flat-square)
-![Keras](https://img.shields.io/badge/Inference-Keras-2563EB?style=flat-square)
+
 
 **개인 프로젝트** · 조동휘: 앱·서버·수집 로직·추론 연동
 
