@@ -70,7 +70,7 @@ flowchart LR
 
 YOLOv5 결과에서 사람 감지 상태가 이어지는 시간을 확인하고, 10초 조건을 만족하면 이미지를 320×240으로 줄여 서버에 전송합니다. 동일 인물 추적이나 정지 자세 판별을 구현한 것은 아닙니다.
 
-[수집 조건과 업로드](yolov5/changeDetection.py) · [탐지 루프 연결](yolov5/detect.py)
+[수집 조건과 업로드](vision/yolov5/change_detection.py) · [탐지 루프 연결](vision/yolov5/detect.py)
 
 ### 02. 앱과 서버를 연결하는 라벨링 API
 
@@ -83,7 +83,7 @@ YOLOv5 결과에서 사람 감지 상태가 이어지는 시간을 확인하고,
 | `SMK` | 흡연 |
 | `ETC` | 기타 |
 
-[데이터 모델](djangogirls/blog/models.py) · [서버 API](djangogirls/blog/views.py) · [Android 앱](UrnationDetector/app/src/main/java/com/example/urnationdetector/MainActivity.java) · [API 상세](docs/API.md)
+[데이터 모델](server/blog/models.py) · [서버 API](server/blog/views.py) · [Android 앱](android/app/src/main/java/com/example/urnationdetector/MainActivity.java) · [API 상세](docs/API.md)
 
 <details>
 <summary>개발 당시 Android 라벨링 화면 보기</summary>
@@ -100,7 +100,7 @@ YOLOv5 결과에서 사람 감지 상태가 이어지는 시간을 확인하고,
 
 0.8은 코드의 경고 임계값이며, 모델의 정확도 80%를 뜻하지 않습니다.
 
-[전처리·추론·경고 코드](Urination_Detector/run.py)
+[전처리·추론·경고 코드](inference/run_classifier.py)
 
 <a id="project-structure"></a>
 
@@ -110,18 +110,20 @@ YOLOv5 결과에서 사람 감지 상태가 이어지는 시간을 확인하고,
 
 ```text
 UrinationDetector/
-├── yolov5/  # 사람 감지·이미지 수집
-│   ├── changeDetection.py  # 수집 조건·이미지 전송
+├── vision/yolov5/  # 사람 감지·이미지 수집
+│   ├── change_detection.py  # 수집 조건·이미지 전송
 │   └── detect.py  # 탐지 루프 연동
-├── djangogirls/  # 이미지 저장·조회·라벨 API
-├── UrnationDetector/  # Android 라벨링 앱
-├── LoadImage/  # 학습 데이터 내려받기
-├── Urination_Detector/  # Raspberry Pi 현장 추론
-│   └── run.py  # 분류·음성 경고
+├── server/  # 이미지 저장·조회·라벨 API·의존성
+├── android/  # Android 라벨링 앱
+├── tools/dataset_export/
+│   └── export_images.py  # 학습 데이터 내려받기
+├── inference/  # Raspberry Pi 현장 추론
+│   └── run_classifier.py  # 분류·음성 경고
+├── .env.example  # 로컬 설정 예시
 └── docs/  # 실행 조건·API·검증 기록
 ```
 
-`UrnationDetector`는 현재 Android 모듈의 실제 폴더 이름입니다.
+Android 패키지명과 applicationId는 기존 `com.example.urnationdetector`를 유지했습니다. `vision/yolov5`의 외부 코드·라이선스와 기존 모델·수집 이미지는 그대로 보관했습니다.
 
 ## 실행과 검증
 
@@ -129,7 +131,7 @@ UrinationDetector/
 
 ## 현재 한계와 다음 개선
 
-- 서버 주소와 인증 설정을 환경별로 분리하고, 각 클라이언트의 인증 헤더를 통일할 필요가 있습니다.
+- 서버 주소와 토큰은 환경변수로 지정하며 클라이언트의 접두사는 `Token`으로 맞췄습니다. API 접근 권한 정책은 별도 보강이 필요합니다.
 - 미분류 데이터가 없을 때의 응답과 조회 정렬 기준을 보강할 예정입니다.
 - 네트워크 재시도, 경고 반복 간격, 오탐 측정이 필요합니다.
 - 저장소만으로 야외 환경의 정확도·처리 속도를 재현했다고 주장하지 않습니다.

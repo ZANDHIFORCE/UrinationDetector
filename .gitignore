@@ -1,0 +1,12 @@
+# 로컬 실행 파일
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.sqlite3
+server/static/
+android/local.properties
+android/.gradle/
+android/.idea/
+android/**/build/
+tools/dataset_export/image_output/

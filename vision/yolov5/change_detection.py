@@ -14,22 +14,10 @@ class ChangeDetection:
     timestamp1 = None
     timestamp2 = None
 
-    ##토큰사용해서 ID/PW 필요없음##
-    # username = 'zandhiforce'
-    # password = 'Gcfe7814!@'
-
     def __init__(self, names):
         self.result_prev = [0 for i in range(len(names))]
-        self.HOST = 'https://zandhi98.pythonanywhere.com/'
-        self.token = '50f9df4ce578b888b76a46e57ef1d4059635b260'
-
-        ##ID/PW 사용해서 token 가져오기##
-        # res = requests.post(self.HOST + '/api-token-auth/', {
-        #     'username': self.username,
-        #     'password': self.password,
-        # })
-        # res.raise_for_status()
-        # self.token = res.json()['token']
+        self.HOST = os.environ.get('URINATION_API_URL', 'http://127.0.0.1:8000').rstrip('/')
+        self.token = os.environ.get('URINATION_API_TOKEN', '')
 
     def add(self, names, detected_current, save_dir, image):
         self.title = 'Person' #default = Person
@@ -72,16 +60,17 @@ class ChangeDetection:
 
     def send(self, save_dir, image):
         now = datetime.now()
-        now.isoformat()
         today = datetime.now()
-        save_path = os.getcwd() / save_dir / 'detected' / str(today.year) / str(today.month) / str(today.day)
+        save_path = pathlib.Path(save_dir) / 'detected' / str(today.year) / str(today.month) / str(today.day)
         pathlib.Path(save_path).mkdir(parents=True, exist_ok=True)
         full_path = save_path / '{0}-{1}-{2}-{3}.jpg'.format(today.hour, today.minute, today.second, today.microsecond)
         dst = cv2.resize(image, dsize=(320, 240), interpolation=cv2.INTER_AREA)
-        cv2.imwrite(full_path, dst)
+        cv2.imwrite(str(full_path), dst)
         
         # 인증이 필요한 요청에 아래의 headers를 붙임
-        headers = {'Authorization' : 'JWT ' + self.token, 'Accept' : 'application/json'}
+        headers = {'Accept' : 'application/json'}
+        if self.token:
+            headers['Authorization'] = 'Token ' + self.token
         
         # Post Create
         data = {
@@ -92,6 +81,8 @@ class ChangeDetection:
             'label' : self.label
         }
         
-        file = {'image' : open(full_path, 'rb')}
-        res = requests.post(self.HOST + '/api_root/Posts/', data=data, files=file, headers=headers)
+        with open(full_path, 'rb') as image_file:
+            file = {'image' : image_file}
+            res = requests.post(self.HOST + '/api_root/Posts/', data=data, files=file, headers=headers, timeout=30)
+            res.raise_for_status()
         print(res)

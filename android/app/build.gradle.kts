@@ -2,7 +2,13 @@ plugins {
     id("com.android.application")
 }
 
+// 로컬 서버 주소와 토큰은 빌드할 때 지정
+val apiUrl = providers.environmentVariable("URINATION_API_URL").orElse("http://10.0.2.2:8000")
+val apiToken = providers.environmentVariable("URINATION_API_TOKEN").orElse("")
+fun quoted(value: String) = "\"" + value.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
+
 android {
+    buildFeatures { buildConfig = true }
     namespace = "com.example.urnationdetector"
     compileSdk = 34
 
@@ -12,6 +18,8 @@ android {
         targetSdk = 31
         versionCode = 1
         versionName = "1.0"
+        buildConfigField("String", "API_URL", quoted(apiUrl.get().trimEnd('/')))
+        buildConfigField("String", "API_TOKEN", quoted(apiToken.get()))
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
