@@ -14,7 +14,7 @@ import os
 import platform
 import sys
 from pathlib import Path
-from changeDetection import ChangeDetection
+from change_detection import ChangeDetection
 import torch
 
 FILE = Path(__file__).resolve()

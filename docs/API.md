@@ -34,8 +34,8 @@
 ## 현재 동작의 주의점
 
 - `latest-UCF`라는 이름과 달리 조회에는 명시적인 최신순 정렬이 없습니다. 코드의 `filter(label="UCF").first()`로 선택되는 레코드를 다룹니다.
-- 빈 데이터의 GET 응답은 의도한 404와 실제 동작이 같은지 추가 확인이 필요합니다.
-- Android는 `Token`, 수집 모듈은 `JWT` 접두사를 사용하고 있어 서버 설정과의 정합성 확인이 필요합니다. 인증이 일관되게 적용된 서비스라고 가정하지 않습니다.
-- 이 문서는 코드에서 확인한 경로와 필드를 정리한 것이며 운영 서버에 요청하여 검증한 API 명세가 아닙니다.
+- 미분류 데이터가 없을 때 GET은 HTTP 200으로 빈 `title`·`text`, `null`인 `image` 등을 반환합니다. 같은 조건에서 PUT은 HTTP 404입니다. 기존 동작을 유지했고 로컬 테스트로 확인했습니다.
+- Android와 Python 클라이언트는 지정한 토큰에 `Token` 접두사를 붙입니다. 서버의 기존 DRF 설정은 토큰 인증·권한 검사를 강제하지 않습니다. 토큰 발급 경로가 있다는 것만으로 이미지 API가 보호되는 것은 아닙니다.
+- 이 문서는 코드와 로컬 테스트를 기준으로 합니다. 기존 운영 서버는 호출하지 않았습니다.
 
-[URL 설정](../djangogirls/blog/urls.py) · [뷰](../djangogirls/blog/views.py) · [직렬화](../djangogirls/blog/serializers.py)
+[URL 설정](../server/blog/urls.py) · [뷰](../server/blog/views.py) · [직렬화](../server/blog/serializers.py)

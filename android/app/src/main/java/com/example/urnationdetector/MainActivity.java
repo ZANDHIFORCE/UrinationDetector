@@ -30,7 +30,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Base64;
 
 import android.Manifest;
 
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imgView;
     TextView textView;
-    String site_url = "https://zandhi98.pythonanywhere.com";
+    String site_url = BuildConfig.API_URL;
     JSONObject post_json;
     String imageUrl = null;
     Bitmap bmImg = null;
@@ -160,13 +159,9 @@ public class MainActivity extends AppCompatActivity {
             try {
 
                 String apiUrl = urls[0];
-                String token = "50f9df4ce578b888b76a46e57ef1d4059635b260";
-                //String username = "zandhiforce";
-                //String password = "";
+                String token = BuildConfig.API_TOKEN;
                 URL myFileUrl = new URL(apiUrl);
                 HttpURLConnection conn = (HttpURLConnection) myFileUrl.openConnection();
-                //String authString = username + ":" + password;
-                //String authHeaderValue = "Basic " + Base64.getEncoder().encodeToString(authString.getBytes());
                 conn.setRequestProperty("Authorization", "Token "+ token);
                 conn.setRequestMethod("GET");
                 conn.setConnectTimeout(30000);
@@ -232,17 +227,13 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(String... labels) {
             try {
 
-                String token = "50f9df4ce578b888b76a46e57ef1d4059635b260";
-                //String username = "zandhiforce";
-                //String password = "";
+                String token = BuildConfig.API_TOKEN;
 
                 String jsonData = "{\"label\":\""+labels[0]+"\"}";
 
                 URL url = new URL(site_url + "/api_root/latest-UCF/");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-                //String authString = username + ":" + password;
-                //String authHeaderValue = "Basic " + Base64.getEncoder().encodeToString(authString.getBytes());
                 conn.setRequestProperty("Authorization", "Token " + token);
                 conn.setRequestMethod("PUT");
                 conn.setRequestProperty("Content-Type", "application/json");
