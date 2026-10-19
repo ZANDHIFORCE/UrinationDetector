@@ -1,3 +1,4 @@
+# 수집·업로드·내려받기·추론 연결 확인
 import contextlib
 from datetime import datetime, timedelta
 from io import BytesIO
