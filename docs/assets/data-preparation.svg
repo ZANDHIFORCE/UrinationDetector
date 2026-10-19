@@ -1,57 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="512" viewBox="0 0 960 512" role="img" aria-labelledby="title desc">
-<title id="title">이미지 수집부터 학습 모델 준비까지</title><desc id="desc">수집, 라벨링, 학습을 별도로 실행합니다. 카메라 이미지를 서버에 저장하고 Android에서 라벨을 지정한 뒤 내려받아 Teachable Machine에서 학습합니다.</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker></defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-labelledby="title">
+<title id="title">카메라·YOLOv5 → 10초 수집 조건 → Django API → Android 라벨링 → 데이터 추출 → Teachable Machine → Keras 모델</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker></defs>
 <g font-family="'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif">
-<rect x="1" y="1" width="958" height="510" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
-<text x="28" y="43" font-size="23" fill="#0f172a" font-weight="700" text-anchor="start">카메라 이미지에서 학습 모델까지</text>
-<text x="28" y="71" font-size="16" fill="#64748b" font-weight="400" text-anchor="start">수집 → 라벨링 → 데이터 내려받기·학습</text>
-<rect x="28" y="103" width="284" height="318" rx="12" fill="white" stroke="#e2e8f0"/>
-<rect x="44" y="121" width="35" height="30" rx="8" fill="#eff6ff" stroke="#eff6ff"/>
-<text x="61.5" y="142" font-size="15" fill="#2563eb" font-weight="700" text-anchor="middle">01</text>
-<text x="91" y="143" font-size="20" fill="#0f172a" font-weight="700" text-anchor="start">이미지 수집</text>
-<rect x="44" y="171" width="252" height="62" rx="12" fill="#eff6ff" stroke="#eff6ff"/>
-<text x="60" y="197" font-size="18" fill="#2563eb" font-weight="700" text-anchor="start">카메라 · YOLOv5</text>
-<text x="60" y="220" font-size="14" fill="#475569" font-weight="400" text-anchor="start">사람 감지 상태 확인</text>
-<path d="M 170.0 235 V 247" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="44" y="251" width="252" height="62" rx="12" fill="#eff6ff" stroke="#eff6ff"/>
-<text x="60" y="277" font-size="18" fill="#2563eb" font-weight="700" text-anchor="start">10초 조건 충족</text>
-<text x="60" y="300" font-size="14" fill="#475569" font-weight="400" text-anchor="start">320 × 240 이미지 생성</text>
-<path d="M 170.0 315 V 327" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="44" y="331" width="252" height="62" rx="12" fill="#eff6ff" stroke="#eff6ff"/>
-<text x="60" y="357" font-size="18" fill="#2563eb" font-weight="700" text-anchor="start">서버로 업로드</text>
-<text x="60" y="380" font-size="14" fill="#475569" font-weight="400" text-anchor="start">이미지·메타데이터 전송</text>
-<path d="M 315 262 H 335" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="338" y="103" width="284" height="318" rx="12" fill="white" stroke="#e2e8f0"/>
-<rect x="354" y="121" width="35" height="30" rx="8" fill="#f0fdfa" stroke="#f0fdfa"/>
-<text x="371.5" y="142" font-size="15" fill="#0f766e" font-weight="700" text-anchor="middle">02</text>
-<text x="401" y="143" font-size="20" fill="#0f172a" font-weight="700" text-anchor="start">이미지 라벨링</text>
-<rect x="354" y="171" width="252" height="62" rx="12" fill="#f0fdfa" stroke="#f0fdfa"/>
-<text x="370" y="197" font-size="18" fill="#0f766e" font-weight="700" text-anchor="start">Django 서버</text>
-<text x="370" y="220" font-size="14" fill="#475569" font-weight="400" text-anchor="start">이미지 저장 · 미분류 UCF</text>
-<path d="M 480.0 235 V 247" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="354" y="251" width="252" height="62" rx="12" fill="#f0fdfa" stroke="#f0fdfa"/>
-<text x="370" y="277" font-size="18" fill="#0f766e" font-weight="700" text-anchor="start">Android 라벨링 앱</text>
-<text x="370" y="300" font-size="14" fill="#475569" font-weight="400" text-anchor="start">미분류 이미지 조회·분류</text>
-<path d="M 480.0 315 V 327" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="354" y="331" width="252" height="62" rx="12" fill="#f0fdfa" stroke="#f0fdfa"/>
-<text x="370" y="357" font-size="18" fill="#0f766e" font-weight="700" text-anchor="start">라벨을 서버에 저장</text>
-<text x="370" y="380" font-size="14" fill="#475569" font-weight="400" text-anchor="start">URN · SMK · ETC</text>
-<path d="M 625 262 H 645" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="648" y="103" width="284" height="318" rx="12" fill="white" stroke="#e2e8f0"/>
-<rect x="664" y="121" width="35" height="30" rx="8" fill="#f5f3ff" stroke="#f5f3ff"/>
-<text x="681.5" y="142" font-size="15" fill="#7c3aed" font-weight="700" text-anchor="middle">03</text>
-<text x="711" y="143" font-size="20" fill="#0f172a" font-weight="700" text-anchor="start">학습 모델 준비</text>
-<rect x="664" y="171" width="252" height="62" rx="12" fill="#f5f3ff" stroke="#f5f3ff"/>
-<text x="680" y="197" font-size="18" fill="#7c3aed" font-weight="700" text-anchor="start">학습 데이터 내려받기</text>
-<text x="680" y="220" font-size="14" fill="#475569" font-weight="400" text-anchor="start">분류한 이미지를 로컬에 저장</text>
-<path d="M 790.0 235 V 247" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="664" y="251" width="252" height="62" rx="12" fill="#f5f3ff" stroke="#f5f3ff"/>
-<text x="680" y="277" font-size="18" fill="#7c3aed" font-weight="700" text-anchor="start">Teachable Machine</text>
-<text x="680" y="300" font-size="14" fill="#475569" font-weight="400" text-anchor="start">데이터로 모델 학습</text>
-<path d="M 790.0 315 V 327" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="664" y="331" width="252" height="62" rx="12" fill="#f5f3ff" stroke="#f5f3ff"/>
-<text x="680" y="357" font-size="18" fill="#7c3aed" font-weight="700" text-anchor="start">Keras 모델 내보내기</text>
-<text x="680" y="380" font-size="14" fill="#475569" font-weight="400" text-anchor="start">keras_Model.h5 · labels.txt</text>
-<rect x="28" y="443" width="904" height="44" rx="10" fill="#f1f5f9" stroke="#f1f5f9"/>
-<text x="48" y="471" font-size="16" fill="#475569" font-weight="400" text-anchor="start">라벨링과 학습은 수동으로 진행하며, 완성한 모델을 현장 추론에 사용합니다.</text>
+<rect x="1" y="1" width="958" height="298" rx="18" fill="#f8fafc" stroke="#e2e8f0"/>
+<rect x="28" y="32" width="224" height="72" rx="12" fill="#fff" stroke="#cbd5e1"/>
+<text x="140.0" y="75.0" text-anchor="middle" font-size="20" fill="#334155" font-weight="600">카메라 · YOLOv5</text>
+<rect x="368" y="32" width="224" height="72" rx="12" fill="#fff" stroke="#cbd5e1"/>
+<text x="480.0" y="75.0" text-anchor="middle" font-size="20" fill="#334155" font-weight="600">Django API</text>
+<rect x="708" y="32" width="224" height="72" rx="12" fill="#fff" stroke="#cbd5e1"/>
+<text x="820.0" y="75.0" text-anchor="middle" font-size="20" fill="#334155" font-weight="600">Android 라벨링</text>
+<rect x="708" y="196" width="224" height="72" rx="12" fill="#fff" stroke="#cbd5e1"/>
+<text x="820.0" y="239.0" text-anchor="middle" font-size="20" fill="#334155" font-weight="600">데이터 추출</text>
+<rect x="368" y="196" width="224" height="72" rx="12" fill="#fff" stroke="#cbd5e1"/>
+<text x="480.0" y="239.0" text-anchor="middle" font-size="20" fill="#334155" font-weight="600">Teachable Machine</text>
+<rect x="28" y="196" width="224" height="72" rx="12" fill="#f0fdfa" stroke="#5eead4"/>
+<text x="140.0" y="239.0" text-anchor="middle" font-size="20" fill="#0f766e" font-weight="600">Keras 모델</text>
+<path d="M 260 68 H 360" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 600 68 H 700" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 820 112 V 188" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 700 232 H 600" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 360 232 H 260" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="281" y="28" width="58" height="28" rx="8" fill="#dbeafe" stroke="#dbeafe"/>
+<text x="310" y="48" text-anchor="middle" font-size="16" fill="#1d4ed8" font-weight="700">10초</text>
 </g></svg>

@@ -11,9 +11,7 @@
 
 https://github.com/user-attachments/assets/79a5bd77-b731-4802-b05b-29e4f0ed0a19
 
-Raspberry Pi를 설치한 현장 시연입니다. [**원본 영상 보기**](https://drive.google.com/file/d/1RpNKm9yhZ8sdQCA66H22pW5s6PCMZ65D/view)
-
-
+Raspberry Pi 현장 시연 · [원본 영상](https://drive.google.com/file/d/1RpNKm9yhZ8sdQCA66H22pW5s6PCMZ65D/view)
 
 **개인 프로젝트** · 조동휘: 앱·서버·수집 로직·추론 연동
 
@@ -23,45 +21,42 @@ Raspberry Pi를 설치한 현장 시연입니다. [**원본 영상 보기**](htt
 
 <img src="https://github.com/user-attachments/assets/baf2fd82-4689-41ef-abdc-341c8745b526" width="720" alt="노상방뇨 탐지 프로젝트의 시스템 개요와 현장 구성">
 
-노상방뇨·흡연 행위를 분류하고 음성으로 경고하는 프로토타입입니다. 카메라에서 수집한 이미지를 서버에 저장하고, Android 앱에서 분류한 뒤 모델 학습과 엣지 추론으로 연결했습니다.
-
-| 영역 | 구현 내용 |
-| :--- | :--- |
-| 수집 | YOLOv5 사람 감지 상태가 10초 이상 이어질 때 이미지 전송 |
-| 서버·앱 | 이미지 저장 API, 미분류 이미지 조회, 라벨 변경 |
-| 추론 | Keras 모델로 분류하고 조건 충족 시 Espeak 경고 출력 |
-
-YOLOv5와 모델 학습 도구를 활용했으며, 직접 구현한 수집 조건·서버 API·앱·추론 연동을 중심으로 정리했습니다.
+- 노상방뇨·흡연 분류와 음성 경고 프로토타입 구현
+- 이미지 수집 → 서버 저장 → Android 라벨링 → 모델 학습·현장 추론 연결
+- YOLOv5·Teachable Machine 활용, 수집 조건·API·앱·추론 연동 직접 구현
 
 ## 구현 구조
 
 ### 데이터 준비 흐름
 
 <picture>
-  <source media="(max-width: 600px)" srcset="docs/assets/data-preparation-mobile.svg">
+  <source media="(max-width: 1000px)" srcset="docs/assets/data-preparation-mobile.svg">
   <img src="docs/assets/data-preparation.svg" alt="이미지 수집 → Django 저장·Android 라벨링 → 데이터 내려받기·Teachable Machine 학습 → Keras 모델 준비">
 </picture>
 
 ### 현장 추론 흐름
 
 <picture>
-  <source media="(max-width: 600px)" srcset="docs/assets/field-inference-mobile.svg">
+  <source media="(max-width: 1000px)" srcset="docs/assets/field-inference-mobile.svg">
   <img src="docs/assets/field-inference.svg" alt="카메라 프레임 전처리 → Keras 분류 → 노상방뇨 또는 흡연이며 신뢰도 0.8 초과 시 음성 경고 → 다음 프레임 처리">
 </picture>
 
-데이터 준비와 현장 추론은 별도 단계입니다. 수집부터 모델 재학습까지 자동으로 수행하는 실시간 파이프라인은 아닙니다.
+- 데이터 준비·현장 추론은 별도 실행, 라벨링·학습은 수동 진행
 
 ## 핵심 구현
 
-### 01. 사람 감지 상태를 기준으로 이미지 수집
+### 01. 이미지 수집
 
-YOLOv5 결과에서 사람 감지 상태가 이어지는 시간을 확인하고, 10초 조건을 만족하면 이미지를 320×240으로 줄여 서버에 전송합니다. 동일 인물 추적이나 정지 자세 판별을 구현한 것은 아닙니다.
+- 사람 감지 상태가 10초 이상 이어지면 이미지 전송
+- 320×240 크기로 축소 후 서버 업로드
+- 동일 인물 추적·정지 자세 판별은 미구현
 
 [수집 조건과 업로드](vision/yolov5/change_detection.py) · [탐지 루프 연결](vision/yolov5/detect.py)
 
-### 02. 앱과 서버를 연결하는 라벨링 API
+### 02. 라벨링 API·Android 앱
 
-서버는 이미지와 메타데이터를 저장하고, 앱은 미분류 이미지를 조회한 뒤 선택한 라벨을 전송합니다. Android 앱은 Java와 `HttpURLConnection`을 사용합니다.
+- Django로 이미지·메타데이터 저장, 미분류 조회·라벨 변경 API 구현
+- Java·`HttpURLConnection`으로 Android 조회·분류 화면 연결
 
 | 값 | 의미 |
 | :--- | :--- |
@@ -77,15 +72,15 @@ YOLOv5 결과에서 사람 감지 상태가 이어지는 시간을 확인하고,
 
 <img src="https://github.com/user-attachments/assets/a1f81eb6-2a83-42c3-be5b-f73dc7a0062f" width="320" alt="서버에서 받은 이미지에 노상방뇨·흡연·기타 라벨을 지정하는 Android 앱 화면">
 
-*기존 시연 자료입니다. 세로 화면은 원래 비율을 유지합니다.*
+*개발 당시 시연 화면*
 
 </details>
 
-### 03. 분류 결과를 음성 경고로 연결
+### 03. 현장 추론·음성 경고
 
-`keras_Model.h5`와 `labels.txt`를 읽어 카메라 프레임을 분류합니다. 예측 클래스가 노상방뇨 또는 흡연이고 신뢰도 점수가 **0.8을 초과**하면 해당 경고를 출력합니다.
-
-0.8은 코드의 경고 임계값이며, 모델의 정확도 80%를 뜻하지 않습니다.
+- `keras_Model.h5`·`labels.txt`로 카메라 프레임 분류
+- 노상방뇨·흡연으로 분류되고 **신뢰도 > 0.8**이면 Espeak 경고 출력
+- 0.8은 경고 임계값이며 정확도 지표와 별개
 
 [전처리·추론·경고 코드](inference/run_classifier.py)
 
@@ -93,7 +88,7 @@ YOLOv5 결과에서 사람 감지 상태가 이어지는 시간을 확인하고,
 
 ## 📂 프로젝트 구조
 
-주요 코드와 문서만 표시했습니다.
+주요 파일 기준
 
 ```text
 UrinationDetector/
@@ -110,18 +105,19 @@ UrinationDetector/
 └── docs/  # 실행 조건·API·검증 기록
 ```
 
-Android 패키지명과 applicationId는 기존 `com.example.urnationdetector`를 유지했습니다. `vision/yolov5`의 외부 코드·라이선스와 기존 모델·수집 이미지는 그대로 보관했습니다.
+- Android 식별자: `com.example.urnationdetector` 유지
+- YOLOv5 외부 코드·라이선스, 기존 모델·이미지 보존
 
 ## 실행과 검증
 
-서버·Android 앱·카메라·학습 모델·음성 출력 환경이 필요합니다. [모듈별 실행 조건](docs/SETUP.md)과 [검증 기록](docs/VALIDATION.md)에서 현재 재현 가능한 범위를 확인할 수 있습니다.
+- [실행 안내](docs/SETUP.md): 서버·앱·카메라·모델·음성 환경 설정
+- [검증 기록](docs/VALIDATION.md): Django·파이프라인 테스트, Android 빌드 확인
 
 ## 현재 한계와 다음 개선
 
-- 서버 주소와 토큰은 환경변수로 지정하며 클라이언트의 접두사는 `Token`으로 맞췄습니다. API 접근 권한 정책은 별도 보강이 필요합니다.
-- 미분류 데이터가 없을 때의 응답과 조회 정렬 기준을 보강할 예정입니다.
-- 네트워크 재시도, 경고 반복 간격, 오탐 측정이 필요합니다.
-- 저장소만으로 야외 환경의 정확도·처리 속도를 재현했다고 주장하지 않습니다.
+- API 접근 권한, 미분류 데이터 없음·정렬 처리 보강 필요
+- 통신 재시도·경고 반복 간격·오탐 측정 필요
+- 실제 장비 통합·야외 정확도·처리 속도는 미검증
 
 ## 프로젝트 자료
 
