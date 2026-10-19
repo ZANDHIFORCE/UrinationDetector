@@ -37,30 +37,17 @@ YOLOv5와 모델 학습 도구를 활용했으며, 직접 구현한 수집 조�
 
 ### 데이터 준비 흐름
 
-```mermaid
-flowchart TD
-    C[카메라 / YOLOv5] --> U[이미지 업로드]
-    U --> S[Django 서버 저장]
-    S --> A[Android 앱에서 미분류 이미지 조회]
-    A --> L[라벨 변경 API]
-    L --> S
-    S --> D[학습 데이터 내려받기]
-    D --> T[Teachable Machine 학습]
-    T --> M[Keras 모델 파일]
-    classDef default fill:#eff6ff,stroke:#2563eb,color:#172554
-```
+<picture>
+  <source media="(max-width: 600px)" srcset="docs/assets/data-preparation-mobile.svg">
+  <img src="docs/assets/data-preparation.svg" alt="이미지 수집 → Django 저장·Android 라벨링 → 데이터 내려받기·Teachable Machine 학습 → Keras 모델 준비">
+</picture>
 
 ### 현장 추론 흐름
 
-```mermaid
-flowchart LR
-    C[카메라] --> P[이미지 전처리]
-    P --> K[Keras 추론]
-    K --> D{경고 조건 충족?}
-    D -->|Yes| E[Espeak 음성 경고]
-    D -->|No| N[다음 프레임]
-    classDef default fill:#eff6ff,stroke:#2563eb,color:#172554
-```
+<picture>
+  <source media="(max-width: 600px)" srcset="docs/assets/field-inference-mobile.svg">
+  <img src="docs/assets/field-inference.svg" alt="카메라 프레임 전처리 → Keras 분류 → 노상방뇨 또는 흡연이며 신뢰도 0.8 초과 시 음성 경고 → 다음 프레임 처리">
+</picture>
 
 데이터 준비와 현장 추론은 별도 단계입니다. 수집부터 모델 재학습까지 자동으로 수행하는 실시간 파이프라인은 아닙니다.
 

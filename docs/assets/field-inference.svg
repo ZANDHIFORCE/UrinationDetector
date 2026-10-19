@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+<title id="title">Raspberry Pi 현장 추론과 음성 경고</title><desc id="desc">카메라 프레임을 전처리해 Keras 모델로 분류합니다. 노상방뇨 또는 흡연이며 신뢰도가 0.8을 초과할 때 Espeak로 경고하고 다음 프레임을 처리합니다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker></defs>
+<g font-family="'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif">
+<rect x="1" y="1" width="958" height="418" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="28" y="43" font-size="23" fill="#0f172a" font-weight="700" text-anchor="start">학습한 모델을 현장에서 실행</text>
+<text x="28" y="71" font-size="16" fill="#64748b" font-weight="400" text-anchor="start">Raspberry Pi · 카메라 · Keras · Espeak</text>
+<rect x="28" y="108" width="264" height="162" rx="12" fill="white" stroke="#e2e8f0"/>
+<text x="46" y="139" font-size="18" fill="#0f172a" font-weight="700" text-anchor="start">01  프레임 입력</text>
+<rect x="42" y="160" width="236" height="62" rx="12" fill="#eff6ff" stroke="#eff6ff"/>
+<text x="58" y="186" font-size="18" fill="#2563eb" font-weight="700" text-anchor="start">카메라 프레임</text>
+<text x="58" y="209" font-size="14" fill="#475569" font-weight="400" text-anchor="start">크기 조정 · 정규화</text>
+<text x="46" y="249" font-size="15" fill="#64748b" font-weight="400" text-anchor="start">입력 이미지를 전처리</text>
+<path d="M 296 189 H 330" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="338" y="108" width="284" height="162" rx="12" fill="white" stroke="#e2e8f0"/>
+<text x="356" y="139" font-size="18" fill="#0f172a" font-weight="700" text-anchor="start">02  모델 분류</text>
+<rect x="352" y="160" width="256" height="62" rx="12" fill="#f5f3ff" stroke="#f5f3ff"/>
+<text x="368" y="186" font-size="18" fill="#7c3aed" font-weight="700" text-anchor="start">Keras 모델 추론</text>
+<text x="368" y="209" font-size="14" fill="#475569" font-weight="400" text-anchor="start">예측 클래스 · 신뢰도 반환</text>
+<text x="356" y="249" font-size="15" fill="#64748b" font-weight="400" text-anchor="start">모델 파일 + 라벨 파일 사용</text>
+<path d="M 626 189 H 660" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="668" y="108" width="264" height="162" rx="12" fill="white" stroke="#e2e8f0"/>
+<text x="686" y="139" font-size="18" fill="#0f172a" font-weight="700" text-anchor="start">03  조건에 따라 경고</text>
+<rect x="682" y="160" width="236" height="62" rx="12" fill="#f0fdfa" stroke="#f0fdfa"/>
+<text x="698" y="186" font-size="18" fill="#0f766e" font-weight="700" text-anchor="start">Espeak 음성 경고</text>
+<text x="698" y="209" font-size="14" fill="#475569" font-weight="400" text-anchor="start">노상방뇨 또는 흡연</text>
+<text x="686" y="249" font-size="16" fill="#0f766e" font-weight="700" text-anchor="start">신뢰도 &gt; 0.8일 때 실행</text>
+<path d="M 800 276 V 306 H 160 V 276" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="5 5"/>
+<path d="M 480 276 V 306" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="480" y="339" font-size="17" fill="#475569" font-weight="400" text-anchor="middle">조건 미충족 시 경고 생략 · 경고 후에도 다음 프레임 처리</text>
+<text x="480" y="382" font-size="16" fill="#64748b" font-weight="400" text-anchor="middle">완성한 모델로 추론만 수행하며, 현장에서 모델을 다시 학습하지 않습니다.</text>
+</g></svg>
