@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
+# 이미지 저장·조회·라벨 변경 API 서버 실행
 import os
 import sys
 
