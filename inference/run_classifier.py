@@ -1,3 +1,4 @@
+# 카메라 프레임 분류·음성 경고
 from pathlib import Path
 
 
