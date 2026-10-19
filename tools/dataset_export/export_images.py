@@ -1,3 +1,4 @@
+# 서버 이미지를 라벨별 학습 폴더로 내려받기
 import os
 from pathlib import Path
 from io import BytesIO
