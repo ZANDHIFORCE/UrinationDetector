@@ -1,3 +1,4 @@
+# 사람 감지 10초 조건·이미지 업로드
 import os
 import cv2
 import pathlib
