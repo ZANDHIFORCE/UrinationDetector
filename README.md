@@ -30,15 +30,15 @@ Raspberry Pi 현장 시연 · [원본 영상](https://drive.google.com/file/d/1R
 ### 데이터 준비 흐름
 
 <picture>
-  <source media="(max-width: 1000px)" srcset="docs/assets/data-preparation-mobile.svg">
-  <img src="docs/assets/data-preparation.svg" alt="이미지 수집 → Django 저장·Android 라벨링 → 데이터 내려받기·Teachable Machine 학습 → Keras 모델 준비">
+  <source media="(max-width: 1000px)" srcset="docs/assets/data-flow-mobile.svg">
+  <img src="docs/assets/data-flow.svg" alt="이미지 수집 → Django 저장·Android 라벨링 → 데이터 내려받기·Teachable Machine 학습 → Keras 모델 준비">
 </picture>
 
 ### 현장 추론 흐름
 
 <picture>
-  <source media="(max-width: 1000px)" srcset="docs/assets/field-inference-mobile.svg">
-  <img src="docs/assets/field-inference.svg" alt="카메라 프레임 전처리 → Keras 분류 → 노상방뇨 또는 흡연이며 신뢰도 0.8 초과 시 음성 경고 → 다음 프레임 처리">
+  <source media="(max-width: 1000px)" srcset="docs/assets/inference-flow-mobile.svg">
+  <img src="docs/assets/inference-flow.svg" alt="카메라 프레임 전처리 → Keras 분류 → 노상방뇨 또는 흡연이며 신뢰도 0.8 초과 시 음성 경고 → 다음 프레임 처리">
 </picture>
 
 - 데이터 준비·현장 추론은 별도 실행, 라벨링·학습은 수동 진행
