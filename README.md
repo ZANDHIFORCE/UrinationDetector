@@ -1,6 +1,6 @@
 # Urination Detector
 
-**카메라 이미지 수집, Django API, Android 라벨링 앱, Raspberry Pi 추론을 연결한 IoT 프로젝트**
+**카메라 수집 → 이미지 라벨링 → 모델 학습·현장 추론을 연결한 IoT 프로젝트**
 
 ![Python](https://img.shields.io/badge/Language-Python-2563EB?style=flat-square)
 ![Django](https://img.shields.io/badge/Backend-Django-2563EB?style=flat-square)
